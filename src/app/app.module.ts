@@ -8,17 +8,23 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ArCameraViewPage } from '../pages/ar-camera-view/ar-camera-view';
 import { PathNavigationPage } from '../pages/path-navigation/path-navigation';
+import { ThreeJsExamplePage } from '../pages/three-js-example/three-js-example';
+import { LocationHelperPage } from '../pages/location-helper/location-helper';
 
 //native plugins
 import { CameraPreview } from '@ionic-native/camera-preview';
 import { Geolocation } from '@ionic-native/geolocation';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ArCameraViewPage,
-    PathNavigationPage
+    PathNavigationPage,
+    ThreeJsExamplePage,
+    LocationHelperPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     HomePage,
     ArCameraViewPage,
-    PathNavigationPage
+    PathNavigationPage,
+    ThreeJsExamplePage,
+    LocationHelperPage
   ],
   providers: [
     StatusBar,
@@ -37,7 +45,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     ArCameraViewPage,
     CameraPreview,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BackgroundGeolocation,
+    LocationTrackerProvider
   ]
 })
 export class AppModule {}
